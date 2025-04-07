@@ -24,9 +24,9 @@ By applying `WDA_EXCLUDEFROMCAPTURE`, a window's content will be hidden from scr
 ---
 
 ## 🔧 Features & control
-🔍 Ctrl+H normal and transparent
-🔍 Ctrl+q exit
-🔍 you can move the window over the screen
+- 🔍 Ctrl+H normal and transparent
+- 🔍 Ctrl+q exit
+- 🔍 you can move the window over the screen
 
 - ✅ Simple PyQt6-based browser loading [ChatGPT](https://chatgpt.com/)
 - ✅ Frameless and always-on-top window
