@@ -47,7 +47,7 @@ pip install PyQt6 PyQt6-WebEngine
 
 ---
 <h3>normal : window</h3>
-<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/transparent.jpg?raw=true" alt="Example 2">
+<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/normal.jpg?raw=true" alt="Example 2">
 
 ----
 <h3>transparent : window</h3>
