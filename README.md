@@ -30,5 +30,6 @@ By applying `WDA_EXCLUDEFROMCAPTURE`, a window's content will be hidden from scr
 
 ---
 ## Pip
+<pre>
 pip install PyQt6 PyQt6-WebEngine
-
+</pre>
