@@ -1,7 +1,8 @@
 # 🖼️ Browser Hidden ChatGPT (Anti-Screen Capture PoC)
 
-> A stealthy, frameless ChatGPT browser using PyQt6 and Windows API to demonstrate how to hide windows from screen capture tools — for educational use only.
-
+<p align="center">
+  A stealthy, frameless ChatGPT browser using PyQt6 and Windows API to demonstrate how to hide windows from screen capture tools — for educational use only.
+</p>
 ---
 
 ## 📚 About This Project
