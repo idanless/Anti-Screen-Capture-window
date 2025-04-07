@@ -15,7 +15,7 @@ It demonstrates how the Windows API [`SetWindowDisplayAffinity`](https://learn.m
 
 ---
 
-## 🔍 tools
+##  tools
 
 Inspired by tools like [InterviewCoder](https://www.interviewcoder.co/) ([see article](https://www.cnbc.com/2025/03/09/google-ai-interview-coder-cheat.html)), this project shows how simple techniques can bypass screen sharing detection.
 
@@ -23,13 +23,18 @@ By applying `WDA_EXCLUDEFROMCAPTURE`, a window's content will be hidden from scr
 
 ---
 
-## 🔧 Features
+## 🔧 Features & control
+🔍 Ctrl+H normal and transparent
+🔍 Ctrl+q exit
+🔍 you can move the window over the screen
 
 - ✅ Simple PyQt6-based browser loading [ChatGPT](https://chatgpt.com/)
 - ✅ Frameless and always-on-top window
 - ✅ Keyboard shortcuts to hide/restore window opacity
 - ✅ `SetWindowDisplayAffinity` to hide window from screen captures
 - ✅ Draggable border with styled UI
+
+
 
 ---
 ## Pip
@@ -39,4 +44,15 @@ pip install PyQt6 PyQt6-WebEngine
 
 <h3>POC : window not present and Hide</h3>
 <img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/poc.jpg?raw=true" alt="Example 1">
+
+---
+<h3>normal : window</h3>
+<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/transparent.jpg?raw=true" alt="Example 2">
+
+----
+<h3>transparent : window</h3>
+<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/transparent.jpg?raw=true" alt="Example 2">
+
+
+
 
