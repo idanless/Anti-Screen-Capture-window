@@ -29,4 +29,6 @@ By applying `WDA_EXCLUDEFROMCAPTURE`, a window's content will be hidden from scr
 - ✅ Draggable border with styled UI
 
 ---
+## Pip
+pip install PyQt6 PyQt6-WebEngine
 
