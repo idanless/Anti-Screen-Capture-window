@@ -33,3 +33,7 @@ By applying `WDA_EXCLUDEFROMCAPTURE`, a window's content will be hidden from scr
 <pre>
 pip install PyQt6 PyQt6-WebEngine
 </pre>
+
+<h3>Example 1: Link Removal in Office Document</h3>
+<img src="https://github.com/idanless/sanitize-pdf-and-office/blob/main/CDRIMG/remove%20link.jpeg?raw=true" alt="Example 1">
+
