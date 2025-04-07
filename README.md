@@ -12,7 +12,7 @@ It demonstrates how the Windows API [`SetWindowDisplayAffinity`](https://learn.m
 
 ---
 
-## 🔍 Context
+## 🔍 tools
 
 Inspired by tools like [InterviewCoder](https://www.interviewcoder.co/) ([see article](https://www.cnbc.com/2025/03/09/google-ai-interview-coder-cheat.html)), this project shows how simple techniques can bypass screen sharing detection.
 
