@@ -44,7 +44,7 @@ pip install PyQt6 PyQt6-WebEngine
 </pre>
 
 <h3>POC : window not present and Hide</h3>
-<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/detectionFocus.jpeg?raw=true" alt="Example 1">
+<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/poc.jpg?raw=true" alt="Example 1">
 
 ---
 <h3>normal : window</h3>
