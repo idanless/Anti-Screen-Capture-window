@@ -7,7 +7,6 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtGui import QAction, QIcon, QShortcut, QKeySequence
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from PyQt6.QtWebEngineCore import QWebEngineSettings
-
 import ctypes
 
 class Browser(QMainWindow):
@@ -15,8 +14,7 @@ class Browser(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("PyQt6 Browser")
-        self.setFixedSize(500, 500)
-
+        self.setFixedSize(500, 700)
         self.setGeometry(950, 50, 500, 500)
 
         # Initial opacity settings
@@ -30,7 +28,7 @@ class Browser(QMainWindow):
         # WebEngine View
         self.browser = QWebEngineView()
         self.browser.settings().setAttribute(QWebEngineSettings.WebAttribute.JavascriptEnabled, True)
-        self.browser.setUrl(QUrl("https://chatgpt.com/"))  # Run ChatGPT
+        self.browser.setUrl(QUrl("https://deepai.org/chat"))  # Run ChatGPT
         self.setCentralWidget(self.browser)
         hwnd = int(self.winId())
         ctypes.windll.user32.SetWindowDisplayAffinity(hwnd, 17) # 17 = 0x00000011 , 1 = 0x00000001
@@ -46,8 +44,6 @@ class Browser(QMainWindow):
         # Update URL bar on URL change
         self.browser.urlChanged.connect(self.update_url)
 
-
-
         tray_menu = QMenu()
         toggle_visibility_action = QAction("Toggle Visibility", self)
         quit_action = QAction("Quit", self)
@@ -56,20 +52,28 @@ class Browser(QMainWindow):
         tray_menu.addAction(toggle_visibility_action)
         tray_menu.addAction(quit_action)
 
-
         self.shortcut_toggle_visibility = QShortcut(QKeySequence("Ctrl+H"), self)
         self.shortcut_quit = QShortcut(QKeySequence("Ctrl+Q"), self)
 
         self.shortcut_toggle_visibility.activated.connect(self.toggle_window_visibility)
         self.shortcut_quit.activated.connect(app.quit)
 
-        # Variables for window movement
+        # Shortcut for toggling the draggable border with Ctrl+B
+        self.shortcut_toggle_border = QShortcut(QKeySequence("Ctrl+B"), self)
+        self.shortcut_toggle_border.activated.connect(self.toggle_border_visibility)
+
+        # Variables for window movement and resizing
         self.dragging = False
+        self.resizing = False
         self.offset = QPoint()
+        self.resize_direction = None
 
         # Add a draggable border
         self.border_width = 10  # Width of the draggable border
         self.container = self.create_draggable_border()
+
+        # Initially, hide the border
+        self.container.setVisible(False)
 
     def create_draggable_border(self):
         """Create a draggable border around the window."""
@@ -90,7 +94,6 @@ class Browser(QMainWindow):
         container.mouseReleaseEvent = self.mouseReleaseEvent
 
         return container
-
 
     def navigate_to_url(self):
         url = self.url_bar.text()
@@ -113,24 +116,58 @@ class Browser(QMainWindow):
             self.raise_()          # Raise the window above others
             print("Window restored to normal opacity.")
 
+    def toggle_border_visibility(self):
+        """Toggle the visibility of the draggable border."""
+        current_visibility = self.container.isVisible()
+        self.container.setVisible(not current_visibility)
+        if not current_visibility:
+            print("Draggable border enabled.")
+        else:
+            print("Draggable border disabled.")
+
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.LeftButton:
-            self.dragging = True
-            self.offset = event.position().toPoint()
+            # Detect resizing area
+            if event.pos().x() < self.border_width:  # Left border
+                self.resizing = True
+                self.resize_direction = 'left'
+            elif event.pos().x() > self.width() - self.border_width:  # Right border
+                self.resizing = True
+                self.resize_direction = 'right'
+            elif event.pos().y() < self.border_width:  # Top border
+                self.resizing = True
+                self.resize_direction = 'top'
+            elif event.pos().y() > self.height() - self.border_width:  # Bottom border
+                self.resizing = True
+                self.resize_direction = 'bottom'
+            else:
+                self.dragging = True
+                self.offset = event.position().toPoint()
 
     def mouseMoveEvent(self, event):
         if self.dragging:
-            # Calculate the new position without altering the size
+            # Calculate the new position for moving the window
             new_position = self.mapToGlobal(event.position().toPoint() - self.offset)
             self.move(new_position)
 
-            # Ensure the window stays on top
-            self.setWindowFlags(self.windowFlags() | Qt.WindowType.WindowStaysOnTopHint)
-            self.show()
+        elif self.resizing:
+            if self.resize_direction == 'left':
+                delta = event.position().x() - self.offset.x()
+                self.setGeometry(self.x() + delta, self.y(), self.width() - delta, self.height())
+            elif self.resize_direction == 'right':
+                delta = event.position().x() - self.offset.x()
+                self.setGeometry(self.x(), self.y(), self.width() + delta, self.height())
+            elif self.resize_direction == 'top':
+                delta = event.position().y() - self.offset.y()
+                self.setGeometry(self.x(), self.y() + delta, self.width(), self.height() - delta)
+            elif self.resize_direction == 'bottom':
+                delta = event.position().y() - self.offset.y()
+                self.setGeometry(self.x(), self.y(), self.width(), self.height() + delta)
 
     def mouseReleaseEvent(self, event):
         if event.button() == Qt.MouseButton.LeftButton:
             self.dragging = False
+            self.resizing = False
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
