@@ -44,7 +44,7 @@ pip install PyQt6 PyQt6-WebEngine
 </pre>
 
 <h3>POC : window not present and Hide</h3>
-<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/poc.jpg?raw=true" alt="Example 1">
+<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/detectionFocus.jpeg?raw=true" alt="Example 1">
 
 ---
 <h3>normal : window</h3>
@@ -56,17 +56,21 @@ pip install PyQt6 PyQt6-WebEngine
 
 פ
 <h3 align="center">Anti-Screen detection PoC</h3>
+## detection
+<pre>
+detectionFocusDemo.py
+</pre>
 
-<h3>POC : window not present and Hide</h3>
-<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/poc.jpg?raw=true" alt="Example 1">
+<h3>POC :Share screen with the detection </h3>
+<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/detectionFocus.jpeg?raw=true" alt="Example 1">
 
 ---
-<h3>normal : window</h3>
-<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/normal.jpg?raw=true" alt="Example 2">
+<h3>Host : How is see the detection </h3>
+<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/detectionFocusHost.jpg?raw=true" alt="Example 2">
 
 ----
-<h3>transparent : window</h3>
-<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/transparent.jpg?raw=true" alt="Example 2">
+<h3>Demo : window Focus </h3>
+<img src="https://github.com/idanless/Anti-Screen-Capture-window/blob/main/img/detectionFocusDemo.jpg?raw=true" alt="Example 2">
 
 פ
 
