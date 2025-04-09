@@ -25,6 +25,7 @@ By applying `WDA_EXCLUDEFROMCAPTURE`, a window's content will be hidden from scr
 
 ## 🔧 Features & control
 - 🔍 Ctrl+H normal and transparent
+-🔍 Ctrl+B move window and back window control
 - 🔍 Ctrl+q exit
 - 🔍 you can move the window over the screen
 
