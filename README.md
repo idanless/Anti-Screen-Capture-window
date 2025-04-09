@@ -56,7 +56,12 @@ pip install PyQt6 PyQt6-WebEngine
 
 פ
 <h3 align="center">Anti-Screen detection PoC</h3>
-## detection
+
+<p align="center">
+ By monitoring the currently focused window, I can detect if someone is interacting with applications that aren't visible through screen sharing. This helps identify when users switch hidden windows during a session
+</p>
+---
+
 <pre>
 detectionFocusDemo.py
 </pre>
